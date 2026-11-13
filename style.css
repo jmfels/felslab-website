@@ -1,0 +1,172 @@
+/* =========================================================
+   FELS LAB — STYLES
+   You don't need to edit this file to change your content.
+
+   FONT SIZES — the whole site uses just four, all set here in
+   the :root block below. Change a number there and every place
+   that uses that size updates at once:
+     --fs-normal   1rem    (16px)  normal text: nav, body,
+                           descriptions, author lists, captions,
+                           buttons, footer
+     --fs-title-sm 1.25rem (20px)  smaller titles: section/item
+                           headings (e.g. "Postdoctoral researcher")
+                           and the "Fels Lab" wordmark at the top
+     --fs-title-lg 1.75rem (28px)  big titles: the page titles
+                           (e.g. "Join the lab", "Research")
+     --fs-splash   2.5rem  (40px)  special: the welcome headline only
+   Sizes are in "rem": 1rem = the browser's base font (16px by
+   default). Using rem means the whole site also scales up for
+   visitors who set a larger default font size in their browser,
+   not just when they zoom. The three larger sizes are multiples
+   of the normal size, so they rescale together.
+   On phones the splash is reduced — see the @media block at the
+   very bottom of this file.
+   ========================================================= */
+
+:root{
+  --bg:#FFFFFF;
+  --text:#1A1A1A;
+  --accent:#2E5A82;      /* the one accent color */
+  --ink:#15181C;         /* dark footer */
+  --line:#E6E6E1;
+  --maxw:860px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* the four font sizes (1rem = 16px by default) */
+  --fs-normal:1rem;      /* 16px */
+  --fs-title-sm:1.25rem; /* 20px */
+  --fs-title-lg:1.75rem; /* 28px */
+  --fs-splash:2.5rem;    /* 40px */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:"Inter",system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--text);
+  font-size:var(--fs-normal);line-height:1.7;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;min-height:100vh;
+}
+h1,h2,h3{font-family:inherit;font-weight:600;line-height:1.2;letter-spacing:-.01em}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+
+/* ---------- header / nav ---------- */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);z-index:50}
+.nav{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:9px;font-size:var(--fs-title-sm);font-weight:600;color:var(--text)}
+.brand:hover{text-decoration:none}
+.brand .logo{color:var(--accent);flex:none}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap}
+.nav-links a{color:var(--text);font-size:var(--fs-normal)}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.nav-links a.active{color:var(--accent);font-weight:600}
+
+/* ---------- page shell ---------- */
+main{flex:1;max-width:var(--maxw);margin:0 auto;padding:32px 32px 56px;width:100%}
+.page-title{font-size:var(--fs-title-lg);font-weight:600;margin-bottom:0}
+.page-intro{margin-top:14px}
+.rule{border-top:1px solid var(--line);margin:24px 0}
+
+/* ---------- welcome page ---------- */
+.welcome-hero{margin-bottom:28px}
+.welcome-hero img{width:100%;border-radius:4px;border:1px solid var(--line)}
+.hero-ph{width:100%;aspect-ratio:16/7;border:1px solid var(--line);border-radius:4px;background:#FAFAF9;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:var(--fs-normal);text-align:center;padding:20px}
+.welcome h1{font-size:var(--fs-splash);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.welcome .lead{font-size:var(--fs-normal);margin-top:20px}
+.welcome .lead + .lead{margin-top:14px}
+.welcome-links{margin-top:28px;display:flex;gap:22px;flex-wrap:wrap;font-size:var(--fs-normal)}
+
+/* ---------- research ----------
+   Two columns: the text on the left, a smaller picture on the right.
+   Change 220px below to make every research picture wider or narrower. */
+.theme{display:grid;grid-template-columns:1fr 220px;column-gap:34px;align-items:start;padding:22px 0}
+.theme + .theme{border-top:1px solid var(--line)}
+.theme:first-of-type{padding-top:0}
+/* Title spans the full width on its own row; the body text and the
+   picture sit on the row below, so the picture lines up with the top
+   of the text, not the title. */
+.theme-title{grid-column:1 / -1;font-size:var(--fs-title-sm);font-weight:600;margin-bottom:14px}
+.theme-text{grid-column:1}
+.theme figure{grid-column:2;margin:0}
+.theme figure img{width:100%;border-radius:4px}
+.fig-ph{width:100%;aspect-ratio:4/5;border:1px dashed var(--line);border-radius:4px;background:#FAFAF9;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:var(--fs-normal);text-align:center;padding:14px;line-height:1.4}
+figcaption{font-size:var(--fs-normal);color:var(--accent);margin-top:8px;font-style:italic}
+.theme-text p + p{margin-top:14px}
+
+/* ---------- people ---------- */
+.person{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start;padding:22px 0}
+.person + .person{border-top:1px solid var(--line)}
+.person:first-of-type{padding-top:0}
+.portrait img{width:150px;height:180px;object-fit:cover;border-radius:4px;border:1px solid var(--line)}
+.portrait .ph{width:150px;height:180px;border:1px dashed var(--line);border-radius:4px;background:#FAFAF9;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:var(--fs-normal)}
+.person h2{font-size:var(--fs-title-sm);font-weight:600}
+.person .role{font-style:italic;margin-top:2px}
+.person .note{margin-top:6px}
+.person .links{margin-top:8px}
+.joining{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.joining h2{font-size:var(--fs-title-sm);margin-bottom:12px}
+.joining p + p{margin-top:12px}
+
+/* ---------- publications ---------- */
+.pub{padding:16px 0}
+.pub + .pub{border-top:1px solid var(--line)}
+.pub:first-of-type{padding-top:0}
+/* year and title: same size and font, title not bold, year on its own line above */
+.pub .yr{font-weight:400;color:var(--accent);font-variant-numeric:tabular-nums}
+.pub .ptitle{font-weight:400;margin-top:1px}
+.pub .ptitle a{color:var(--accent)}
+.pub .authors{margin-top:7px}
+.pub .jrnl{margin-top:4px}
+.pub .jrnl em{font-style:italic}
+.pubs-actions{margin-top:30px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+
+/* ---------- join ---------- */
+.role-item{padding:22px 0}
+.role-item + .role-item{border-top:1px solid var(--line)}
+.role-item:first-of-type{padding-top:0}
+.role-item h2{font-size:var(--fs-title-sm);margin-bottom:8px}
+.role-item p{max-width:none}
+.role-item .status{margin-top:8px;color:var(--accent)}
+.apply{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.apply h2{font-size:var(--fs-title-sm);margin-bottom:12px}
+.apply ul{list-style:none;margin-top:16px}
+.apply li{padding:9px 0;border-top:1px solid var(--line)}
+.apply li:first-child{border-top:0}
+
+/* ---------- contact ---------- */
+.contact-block{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:start}
+.contact-info p{margin-bottom:6px}
+.contact-info .addr{margin-top:18px}
+.contact-info .social{margin-top:18px}
+.contact-map{width:390px;max-width:100%}
+.contact-map iframe{width:100%;height:240px;border:1px solid var(--line);border-radius:4px;display:block}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);margin-top:auto}
+.foot{max-width:var(--maxw);margin:0 auto;padding:30px 32px;font-size:var(--fs-normal);color:#fff;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:#fff}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.data-error{position:fixed;top:0;left:0;right:0;z-index:200;background:#B0341F;color:#fff;padding:14px 20px;font-size:var(--fs-normal);text-align:center}
+
+@media (max-width:640px){
+  :root{--fs-splash:2rem}  /* 32px — smaller welcome headline on phones */
+  .nav{padding:14px 22px;gap:12px}
+  .nav-links{gap:14px}
+  main{padding:36px 22px 56px}
+  .foot{padding:26px 22px}
+  .person{grid-template-columns:1fr;gap:16px}
+  .portrait img,.portrait .ph{width:100%;height:220px}
+  .theme{grid-template-columns:1fr;row-gap:16px}        /* research text + picture stack */
+  .theme-title,.theme-text,.theme figure{grid-column:auto}
+  .theme-title{margin-bottom:0}
+  .theme figure{max-width:220px}                        /* keep the picture modest, not full width */
+  .contact-block{grid-template-columns:1fr;gap:0}
+  .contact-map{margin-top:24px;width:100%}
+}
