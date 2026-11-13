@@ -168,8 +168,8 @@ footer{background:var(--ink);margin-top:auto}
   .nav-links a:first-child{border-top:0}
   main{padding:36px 22px 56px}
   .foot{padding:26px 22px}
-  .person{grid-template-columns:1fr;gap:16px}
-  .portrait img,.portrait .ph{width:100%;height:220px}
+  .person{grid-template-columns:100px 1fr;gap:16px}   /* keep photo left, info right on phones */
+  .portrait img,.portrait .ph{width:100px;height:125px}
   .theme{grid-template-columns:1fr;row-gap:16px}        /* research text + picture stack */
   .theme-title,.theme-text,.theme figure{grid-column:auto}
   .theme-title{margin-bottom:0}
