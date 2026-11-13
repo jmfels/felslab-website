@@ -159,6 +159,7 @@ footer{background:var(--ink);margin-top:auto}
 
 @media (max-width:640px){
   :root{--fs-splash:2rem}  /* 32px — smaller welcome headline on phones */
+  html{scrollbar-gutter:auto}   /* phones use overlay scrollbars; no reserved strip needed */
   .nav{padding:14px 22px;gap:12px;flex-wrap:wrap}
   .nav-toggle{display:flex}
   .nav-links{display:none;width:100%;flex-direction:column;gap:0;margin-top:8px}
@@ -172,7 +173,7 @@ footer{background:var(--ink);margin-top:auto}
   .theme{grid-template-columns:1fr;row-gap:16px}        /* research text + picture stack */
   .theme-title,.theme-text,.theme figure{grid-column:auto}
   .theme-title{margin-bottom:0}
-  .theme figure{max-width:220px}                        /* keep the picture modest, not full width */
+  .theme figure{max-width:220px;justify-self:center}    /* modest width, centered under the text */
   .contact-block{grid-template-columns:1fr;gap:0}
   .contact-map{margin-top:24px;width:100%}
 }
