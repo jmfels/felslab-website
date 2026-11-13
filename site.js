@@ -139,11 +139,19 @@
           jrnl = '<div class="jrnl">'+(it.journal?'<em>'+esc(it.journal)+'</em>':'')+
                  (it.pmid?' PMID: '+esc(it.pmid):'')+'</div>';
         }
+        var feat = '';
+        if(it.featured && it.featured.length){
+          feat = '<div class="feat"><span class="feat-label">'+esc(U.featuredLabel||'Featured in')+':</span> '+
+                 it.featured.map(function(x){
+                   return '<a href="'+esc(x.url)+'"'+EXT+'>'+esc(x.label)+'</a>';
+                 }).join(' · ')+'</div>';
+        }
         return '<div class="pub">'+
           '<div class="yr">'+esc(it.year)+'</div>'+
           '<div class="ptitle">'+titleHtml+'</div>'+
           (it.authors?'<div class="authors">'+it.authors+'</div>':'')+
           jrnl+
+          feat+
         '</div>';
       }
       el('pubsMount').innerHTML = (pb.items||[]).map(pubRow).join('');

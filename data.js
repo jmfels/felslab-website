@@ -154,13 +154,25 @@ window.LAB_DATA = {
        journal — shown italic on its own line under the authors
        pmid    — the PubMed ID; shown after the journal and used for
                  the title's link. Leave `` empty for no PMID/link.
+       featured — OPTIONAL. A "Featured in" line of coverage links
+                 shown on its own line under the journal. Format:
+                 featured: [ { label: `Outlet`, url: `https://…` } ]
+                 List as many as you like; omit it for papers with none.
      Add a paper by copying one { } line. */
   publications: {
     title: `Publications`,
     intro: ``,   // optional line under the title; leave empty `` for none
     scholarUrl: `https://scholar.google.com/citations?hl=en&user=0pDGQlkAAAAJ&view_op=list_works&sortby=pubdate`,
     items: [
-      { year: `2026`, title: `Giant DNA viruses encode a hallmark translation initiation complex of eukaryotic life`, authors: `<strong>Fels JM</strong>, Hill AB, Han R, Garcia JM, Bisio H, Abergel C, Kranzusch PJ, Lee ASY`, journal: `Cell`, pmid: `41709453` },
+      { year: `2026`, title: `Giant DNA viruses encode a hallmark translation initiation complex of eukaryotic life`, authors: `<strong>Fels JM</strong>, Hill AB, Han R, Garcia JM, Bisio H, Abergel C, Kranzusch PJ, Lee ASY`, journal: `Cell`, pmid: `41709453`, featured: [
+        { label: `Science`, url: `https://www.science.org/content/article/giant-viruses-hijack-their-hosts-protein-factories` },
+        { label: `Nature`, url: `https://www.nature.com/articles/d41586-026-00532-w` },
+        { label: `Nature Microbiology`, url: `https://www.nature.com/articles/s41564-026-02338-y` },
+        { label: `Trends in Biochemical Sciences`, url: `https://www.cell.com/trends/biochemical-sciences/fulltext/S0968-0004(26)00172-6` },
+        { label: `Current Biology`, url: `https://www.cell.com/current-biology/fulltext/S0960-9822(26)00380-5` },
+        { label: `New Scientist`, url: `https://www.newscientist.com/article/2515941-giant-viruses-may-be-more-alive-than-we-thought/` },
+        { label: `TWiV`, url: `https://www.microbe.tv/twiv/twiv-1301/` }
+      ] },
       { year: `2025`, title: `Avidity and variable domain spacing strongly influence the therapeutic potency of bispecific antibodies against Crimean-Congo hemorrhagic fever virus`, authors: `Wang A, Monticelli SR, Wirchnianski AS, Abelson DM, Kuehne AI, Bakken RR, Middlecamp M, Weingart M, Vergnolle O, Bornholdt ZA, Moyer CL, Berrigan JL, West BR, <strong>Fels JM</strong>, Zeitlin L, Herbert AS, Chandran K, Bikash CR, Lai JR`, journal: `mBio`, pmid: `40237506` },
       { year: `2022`, title: `Genomic surveillance of SARS-CoV-2 during the first year of the pandemic in the Bronx enabled clinical and epidemiological inference`, authors: `<strong>Fels JM*</strong>, Khan S*, Forster R*, Skalina KA, Sirichand S, Fox AS, Bergman A, Mitchell WB, Wolgast LR, Szymczak WA, Bortz RH 3rd, Dieterle ME, Florez C, Haslwanter D, Jangra RK, Laudermilch E, Wirchnianski AS, Barnhill J, Goldman DL, Khine H, Goldstein DY, Daily JP, Chandran K, Kelly L`, journal: `Cold Spring Harbor Molecular Case Studies`, pmid: `35831070` },
       { year: `2022`, title: `Longitudinally monitored immune biomarkers predict the timing of COVID-19 outcomes`, authors: `Lasso G, Khan S, Allen SA, Mariano M, Florez C, Orner EP, Quiroz JA, Quevedo G, Massimi A, Hegde A, Wirchnianski AS, Bortz RH 3rd, Malonis RJ, Georgiev GI, Tong K, Herrera NG, Morano NC, Garforth SJ, Malaviya A, Khokhar A, Laudermilch E, Dieterle ME, <strong>Fels JM</strong>, Haslwanter D, Jangra RK, Barnhill J, Almo SC, Chandran K, Lai JR, Kelly L, Daily JP, Vergnolle O`, journal: `PLOS Computational Biology`, pmid: `35041647` },

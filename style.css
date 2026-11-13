@@ -125,6 +125,9 @@ figcaption{font-size:var(--fs-normal);color:var(--accent);margin-top:8px;font-st
 .pub .authors{margin-top:7px}
 .pub .jrnl{margin-top:4px}
 .pub .jrnl em{font-style:italic}
+.pub .feat{margin-top:4px}
+.pub .feat-label{color:var(--text);opacity:.6}
+.pub .feat a{color:var(--accent)}
 .pubs-actions{margin-top:30px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
 
 /* ---------- join ---------- */
