@@ -39,10 +39,20 @@
       header.innerHTML =
         '<div class="nav">'+
           '<a href="index.html" class="brand">'+logo+'<span>'+esc(D.labName)+'</span></a>'+
-          '<nav class="nav-links">'+ PAGES.map(function(p){
+          '<button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">'+
+            '<span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>'+
+          '</button>'+
+          '<nav class="nav-links" id="navLinks">'+ PAGES.map(function(p){
             return '<a href="'+p.href+'"'+(p.id===page?' class="active"':'')+'>'+p.label+'</a>';
           }).join('') +'</nav>'+
         '</div>';
+      var navToggle = el('navToggle');
+      if(navToggle){
+        navToggle.addEventListener('click', function(){
+          var open = header.classList.toggle('nav-open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
     }
     var foot = el('siteFooter');
     if(foot){
